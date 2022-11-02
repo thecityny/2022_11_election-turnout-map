@@ -17,7 +17,11 @@ const TurnoutMap = () => (
       zoom: 9,
     }}
     style={{ width: "100%", height: 700 }}
-    mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+    mapStyle="https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json"
+    scrollZoom={false}
+    dragRotate={false}
+    minZoom={9}
+    maxZoom={18}
   >
     <GeolocateControl />
     <FullscreenControl />
