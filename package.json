@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "classnames": "^2.3.2",
+    "d3-scale-chromatic": "^3.0.0",
     "dotenv": "^16.0.3",
     "grommet-icons": "^4.8.0",
     "mapbox-gl": "npm:empty-npm-package@^1.0.0",
@@ -23,6 +24,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.55.0",
     "styled-components": "^5.3.5",
+    "topojson-client": "^3.1.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
