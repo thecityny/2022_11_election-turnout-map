@@ -1,6 +1,7 @@
 import React from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Footer, Header } from "./components/HeaderFooter";
+import TurnoutMap from "./components/Map";
 
 import "./styles/app.scss";
 
@@ -50,6 +51,10 @@ export const App = () => (
             efficitur molestie. Praesent a tempus mi.
           </p>
         </div>
+
+        <br />
+
+        <TurnoutMap />
       </div>
       <Footer />
     </article>
