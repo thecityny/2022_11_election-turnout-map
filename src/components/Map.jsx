@@ -36,7 +36,6 @@ const TurnoutMap = () => {
   const [allData, setAllData] = React.useState(null);
 
   React.useEffect(() => {
-    /* global fetch */
     fetch("data/eds.json", {
       headers: {
         "Content-Type": "application/json",
