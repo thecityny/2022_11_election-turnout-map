@@ -48,8 +48,6 @@ const TurnoutMap = () => {
   const [allData, setAllData] = React.useState(null);
   const [hoverInfo, setHoverInfo] = React.useState(null);
 
-  const [cursor, setCursor] = React.useState("auto");
-
   React.useEffect(() => {
     fetch("data/eds.json", {
       headers: {
@@ -79,11 +77,7 @@ const TurnoutMap = () => {
     [selectedDistrict]
   );
 
-  const onMouseEnter = React.useCallback(() => setCursor("pointer"), []);
-  const onMouseLeave = React.useCallback(() => {
-    setHoverInfo(null);
-    setCursor("auto");
-  }, []);
+  const onMouseLeave = React.useCallback(() => setHoverInfo(null), []);
 
   return (
     <Map
@@ -99,7 +93,6 @@ const TurnoutMap = () => {
       interactiveLayerIds={allData ? ["eds"] : []}
       scrollZoom={false}
       dragRotate={false}
-      onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       minZoom={9}
       maxZoom={18}
