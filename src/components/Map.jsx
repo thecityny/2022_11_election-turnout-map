@@ -89,11 +89,11 @@ const TurnoutMap = () => {
     <Map
       mapLib={maplibregl}
       initialViewState={{
-        longitude: -73.957708344928,
+        longitude: -73.977708344928,
         latitude: 40.713323256573386,
-        zoom: 9.7,
+        zoom: 9.5,
       }}
-      style={{ width: "100%", height: 700 }}
+      style={{ width: "100%", height: 600 }}
       mapStyle="https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json"
       onMouseMove={onHover}
       interactiveLayerIds={allData ? ["eds"] : []}

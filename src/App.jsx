@@ -34,7 +34,7 @@ export const App = () => {
 
           <br />
 
-          <div className="container">
+          <div className="copy-container">
             <p className="copy">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
               pellentesque luctus magna sed auctor. Cras ullamcorper urna mattis
@@ -49,8 +49,9 @@ export const App = () => {
           </div>
 
           <br />
-
-          <TurnoutMap />
+          <div className="copy-container">
+            <TurnoutMap />
+          </div>
         </div>
         <Footer />
       </article>
