@@ -56,7 +56,10 @@ const TurnoutMap = () => {
       },
     })
       .then((resp) => resp.json())
-      .then((json) => setAllData(feature(json, json.objects.eds)))
+      .then((json) => {
+        setAllData(feature(json, json.objects.eds));
+        console.log("Election data loaded");
+      })
       .catch((err) => console.error("Could not load data", err)); // eslint-disable-line
   }, []);
 
