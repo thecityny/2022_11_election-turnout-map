@@ -49,7 +49,7 @@ const TurnoutMap = () => {
   const [hoverInfo, setHoverInfo] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("data/eds.json", {
+    fetch("./data/eds.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
