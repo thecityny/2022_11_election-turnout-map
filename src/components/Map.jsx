@@ -10,8 +10,16 @@ import maplibregl from "maplibre-gl";
 import { feature } from "topojson-client";
 import { schemeRdBu } from "d3-scale-chromatic";
 
-import "maplibre-gl/dist/maplibre-gl.css";
 import { MapPopup } from "./Popup";
+
+import "maplibre-gl/dist/maplibre-gl.css";
+import SearchBar from "./SearchBar";
+
+/**
+ * This is a public access token connected to THE CITY's MapBox account:
+ */
+const MAPBOX_TOKEN =
+  "pk.eyJ1IjoidGhlLWNpdHkiLCJhIjoiY2xhMWVuaDNqMDZ1ZzNxbzNkM3poMHBheSJ9.SJAnL4rHAR6jShHQniZZHg";
 
 const breaks = [-100, -50, 0, 50, 100];
 const mixedColorScheme = schemeRdBu[breaks.length];
@@ -96,6 +104,7 @@ const TurnoutMap = () => {
       onMouseLeave={onMouseLeave}
       minZoom={9}
       maxZoom={18}
+      mapboxAccessToken={MAPBOX_TOKEN}
     >
       {allData && (
         <>
@@ -112,6 +121,7 @@ const TurnoutMap = () => {
       <GeolocateControl />
       <FullscreenControl />
       <NavigationControl showCompass={false} />
+      <SearchBar mapboxAccessToken={MAPBOX_TOKEN} position="top-left" />
     </Map>
   );
 };
