@@ -1,5 +1,6 @@
 import * as React from "react";
 import Map, {
+  AttributionControl,
   FullscreenControl,
   GeolocateControl,
   Layer,
@@ -97,7 +98,7 @@ const TurnoutMap = () => {
       initialViewState={{
         longitude: -73.977708344928,
         latitude: 40.713323256573386,
-        zoom: 9.5,
+        zoom: 9.3,
       }}
       style={{ width: "100%", height: 600 }}
       mapStyle="https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json"
@@ -109,6 +110,7 @@ const TurnoutMap = () => {
       minZoom={9}
       maxZoom={18}
       mapboxAccessToken={MAPBOX_TOKEN}
+      attributionControl={false}
     >
       {allData && (
         <>
@@ -126,6 +128,7 @@ const TurnoutMap = () => {
       <FullscreenControl />
       <NavigationControl showCompass={false} />
       <SearchBar mapboxAccessToken={MAPBOX_TOKEN} position="top-left" />
+      <AttributionControl compact position="bottom-left" />
 
       <Legend />
     </Map>
