@@ -14,6 +14,7 @@ import { MapPopup } from "./Popup";
 
 import "maplibre-gl/dist/maplibre-gl.css";
 import SearchBar from "./SearchBar";
+import { Legend } from "./Legend";
 
 /**
  * This is a public access token connected to THE CITY's MapBox account:
@@ -125,6 +126,8 @@ const TurnoutMap = () => {
       <FullscreenControl />
       <NavigationControl showCompass={false} />
       <SearchBar mapboxAccessToken={MAPBOX_TOKEN} position="top-left" />
+
+      <Legend />
     </Map>
   );
 };
