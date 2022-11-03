@@ -18,7 +18,7 @@ export default function SearchBar(props) {
         ...props,
         marker: false,
         accessToken: props.mapboxAccessToken,
-        bbox: [-74.269745, 40.489615, -73.68335, 40.999427],
+        bbox: [-74.2588431761, 40.4765782005, -73.7002332509, 40.9176301821],
       });
       ctrl.on("loading", props.onLoading);
       ctrl.on("results", props.onResults);
@@ -36,6 +36,7 @@ export default function SearchBar(props) {
               {...props.marker}
               longitude={location[0]}
               latitude={location[1]}
+              color="#111111"
             />
           );
         } else {
