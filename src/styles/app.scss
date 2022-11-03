@@ -1,16 +1,17 @@
 // RESET
 // Smooths out the rough edges across browsers
-@import './defaults/normalize';
+@import "./defaults/normalize";
 
 // VARIABLES
 // Reusable settings
-@import './_colors';
-@import './_fonts';
+@import "./_colors";
+@import "./_fonts";
+@import "./_maps";
 
 // OTHER DEFAULT STYLES
 // Smooths out the rough edges across browsers
-@import './defaults/article';
-@import './defaults/dataviz';
+@import "./defaults/article";
+@import "./defaults/dataviz";
 
 // YOUR CODE
 // Starting writing your stuff below here

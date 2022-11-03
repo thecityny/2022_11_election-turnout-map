@@ -11,6 +11,7 @@ import { feature } from "topojson-client";
 import { schemeRdBu } from "d3-scale-chromatic";
 
 import "maplibre-gl/dist/maplibre-gl.css";
+import { MapPopup } from "./Popup";
 
 const breaks = [-100, -50, 0, 50, 100];
 const mixedColorScheme = schemeRdBu[breaks.length];
@@ -29,11 +30,25 @@ const layerStyle = {
       "#ccc",
     ],
     "fill-opacity": 0.75,
+    "fill-outline-color": "#eeeeee",
+  },
+};
+
+const hoverStyle = {
+  id: "eds-highlighted",
+  type: "line",
+  source: "eds",
+  paint: {
+    "line-width": 1.5,
+    "line-color": "#000",
   },
 };
 
 const TurnoutMap = () => {
   const [allData, setAllData] = React.useState(null);
+  const [hoverInfo, setHoverInfo] = React.useState(null);
+
+  const [cursor, setCursor] = React.useState("auto");
 
   React.useEffect(() => {
     fetch("data/eds.json", {
@@ -47,6 +62,29 @@ const TurnoutMap = () => {
       .catch((err) => console.error("Could not load data", err)); // eslint-disable-line
   }, []);
 
+  const onHover = React.useCallback((event) => {
+    const district = event.features && event.features[0];
+    setHoverInfo({
+      longitude: event.lngLat.lng,
+      latitude: event.lngLat.lat,
+      districtData: !!district ? district.properties : null,
+    });
+  }, []);
+
+  const selectedDistrict =
+    (hoverInfo && hoverInfo.districtData && hoverInfo.districtData.ed) || "";
+
+  const filter = React.useMemo(
+    () => ["in", "ed", selectedDistrict],
+    [selectedDistrict]
+  );
+
+  const onMouseEnter = React.useCallback(() => setCursor("pointer"), []);
+  const onMouseLeave = React.useCallback(() => {
+    setHoverInfo(null);
+    setCursor("auto");
+  }, []);
+
   return (
     <Map
       mapLib={maplibregl}
@@ -57,15 +95,27 @@ const TurnoutMap = () => {
       }}
       style={{ width: "100%", height: 700 }}
       mapStyle="https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json"
+      onMouseMove={onHover}
+      interactiveLayerIds={allData ? ["eds"] : []}
       scrollZoom={false}
       dragRotate={false}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       minZoom={9}
       maxZoom={18}
     >
-      <Source id="election-margins-data" type="geojson" data={allData}>
-        <Layer {...layerStyle} />
-      </Source>
+      {allData && (
+        <>
+          <Source id="election-margins-data" type="geojson" data={allData}>
+            <Layer {...layerStyle} />
+            <Layer {...hoverStyle} filter={filter} />
+          </Source>
 
+          {hoverInfo && hoverInfo.districtData && (
+            <MapPopup hoverInfo={hoverInfo} />
+          )}
+        </>
+      )}
       <GeolocateControl />
       <FullscreenControl />
       <NavigationControl showCompass={false} />
