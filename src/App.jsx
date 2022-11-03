@@ -38,7 +38,7 @@ export const App = () => {
             <p className="copy">
               TKTKTK beat TKTKTK in the Nov. 8 election — but with TKTKTK
               enthusiasm from voters than TKTKTK in the 2018 Gubernatorial race.
-              The results showed TKTKTK garnered 65.5% of the vote statewide,
+              The results showed TKTKTK garnered TK% of the vote statewide,
               compared to TKTKTK.
             </p>
             <p className="copy">
