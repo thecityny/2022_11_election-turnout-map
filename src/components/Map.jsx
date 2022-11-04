@@ -16,6 +16,7 @@ import { MapPopup } from "./Popup";
 import "maplibre-gl/dist/maplibre-gl.css";
 import SearchBar from "./SearchBar";
 import { Legend } from "./Legend";
+import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 
 /**
  * This is a public access token connected to THE CITY's MapBox account:
@@ -86,7 +87,7 @@ const TurnoutMap = () => {
   /**
    * Which map type are we showing? Margins map or voter turnout map?
    */
-  const [isTurnoutMap, setIsTurnoutMap] = React.useState(true);
+  const [isTurnoutMap, setIsTurnoutMap] = React.useState(false);
   const [mapData, setMapData] = React.useState(null);
   const [hoverInfo, setHoverInfo] = React.useState(null);
 
@@ -158,6 +159,22 @@ const TurnoutMap = () => {
           )}
         </>
       )}
+
+      {/* MuiFormControlLabel */}
+      <FormGroup>
+        <span>Margins</span>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={isTurnoutMap}
+              onChange={() => setIsTurnoutMap(!isTurnoutMap)}
+              color="default"
+            />
+          }
+          label="Turnout"
+        />
+      </FormGroup>
+
       <GeolocateControl />
       <FullscreenControl />
       <NavigationControl showCompass={false} />
