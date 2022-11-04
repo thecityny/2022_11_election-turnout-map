@@ -87,7 +87,7 @@ const TurnoutMap = () => {
   /**
    * Which map type are we showing? Margins map or voter turnout map?
    */
-  const [isTurnoutMap, setIsTurnoutMap] = React.useState(false);
+  const [isTurnoutMap, setIsTurnoutMap] = React.useState(true);
   const [mapData, setMapData] = React.useState(null);
   const [hoverInfo, setHoverInfo] = React.useState(null);
 
@@ -155,7 +155,7 @@ const TurnoutMap = () => {
           </Source>
 
           {hoverInfo && hoverInfo.districtData && (
-            <MapPopup hoverInfo={hoverInfo} />
+            <MapPopup hoverInfo={hoverInfo} isTurnoutMap={isTurnoutMap} />
           )}
         </>
       )}
