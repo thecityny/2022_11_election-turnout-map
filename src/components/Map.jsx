@@ -9,7 +9,7 @@ import Map, {
 } from "react-map-gl";
 import maplibregl from "maplibre-gl";
 import { feature } from "topojson-client";
-import { schemeRdBu } from "d3-scale-chromatic";
+import { schemeRdBu, schemeGreys } from "d3-scale-chromatic";
 
 import { MapPopup } from "./Popup";
 
@@ -23,25 +23,40 @@ import { Legend } from "./Legend";
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoidGhlLWNpdHkiLCJhIjoiY2xhMWVuaDNqMDZ1ZzNxbzNkM3poMHBheSJ9.SJAnL4rHAR6jShHQniZZHg";
 
-const breaks = [-100, -50, 0, 50, 100];
-const mixedColorScheme = schemeRdBu[breaks.length];
-const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
-
-const layerStyle = {
-  id: "eds",
-  type: "fill",
-  paint: {
-    "fill-color": [
-      "case",
-      ["to-boolean", ["get", "margin"]],
-      ["interpolate", ["linear"], ["to-number", ["get", "margin"]]].concat(
-        ...mixedColors
-      ),
-      "#ccc",
-    ],
-    "fill-opacity": 0.75,
-    "fill-outline-color": "#eeeeee",
-  },
+const getLayerStyle = (isTurnoutMap) => {
+  const breaks = isTurnoutMap
+    ? [-32, -28, -24, -20, -16, -12, -8, -4, 0]
+    : [-100, -50, 0, 50, 100];
+  const mixedColorScheme = isTurnoutMap
+    ? [
+        "#ffffff",
+        "#f0f0f0",
+        "#d9d9d9",
+        "#bdbdbd",
+        "#969696",
+        "#737373",
+        "#525252",
+        "#252525",
+        "#0a0a0a",
+      ]
+    : schemeRdBu[breaks.length];
+  const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
+  return {
+    id: "eds",
+    type: "fill",
+    paint: {
+      "fill-color": [
+        "case",
+        ["to-boolean", ["get", "margin"]],
+        ["interpolate", ["linear"], ["to-number", ["get", "margin"]]].concat(
+          ...mixedColors
+        ),
+        "#ccc",
+      ],
+      "fill-opacity": 0.75,
+      "fill-outline-color": "#333",
+    },
+  };
 };
 
 const hoverStyle = {
@@ -55,6 +70,10 @@ const hoverStyle = {
 };
 
 const TurnoutMap = () => {
+  /**
+   * Which map type are we showing? Margins map or voter turnout map?
+   */
+  const [isTurnoutMap, setIsTurnoutMap] = React.useState(true);
   const [mapData, setMapData] = React.useState(null);
   const [hoverInfo, setHoverInfo] = React.useState(null);
 
@@ -101,7 +120,9 @@ const TurnoutMap = () => {
         zoom: 9.3,
       }}
       style={{ width: "100%", height: 600 }}
-      mapStyle="https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json"
+      mapStyle={`https://basemaps.cartocdn.com/gl/${
+        isTurnoutMap ? "dark-matter" : "positron"
+      }-nolabels-gl-style/style.json`}
       onMouseMove={onHover}
       interactiveLayerIds={mapData ? ["eds"] : []}
       scrollZoom={false}
@@ -115,7 +136,7 @@ const TurnoutMap = () => {
       {mapData && (
         <>
           <Source id="election-margins-data" type="geojson" data={mapData}>
-            <Layer {...layerStyle} />
+            <Layer {...getLayerStyle(isTurnoutMap)} />
             <Layer {...hoverStyle} filter={filter} />
           </Source>
 
