@@ -9,7 +9,7 @@ import Map, {
 } from "react-map-gl";
 import maplibregl from "maplibre-gl";
 import { feature } from "topojson-client";
-import { schemeRdBu, schemeGreys } from "d3-scale-chromatic";
+import { schemeRdBu } from "d3-scale-chromatic";
 
 import { MapPopup } from "./Popup";
 
@@ -67,20 +67,20 @@ const getLayerStyle = (isTurnoutMap) => {
             "#ccc",
           ],
       "fill-opacity": 0.75,
-      "fill-outline-color": "#333",
+      "fill-outline-color": isTurnoutMap ? "#333" : "#eee",
     },
   };
 };
 
-const hoverStyle = {
+const getHoverStyle = (isTurnoutMap) => ({
   id: "eds-highlighted",
   type: "line",
   source: "eds",
   paint: {
     "line-width": 1.5,
-    "line-color": "#000",
+    "line-color": isTurnoutMap ? "#fcc32c" : "#000",
   },
-};
+});
 
 const TurnoutMap = () => {
   /**
@@ -150,7 +150,7 @@ const TurnoutMap = () => {
         <>
           <Source id="election-margins-data" type="geojson" data={mapData}>
             <Layer {...getLayerStyle(isTurnoutMap)} />
-            <Layer {...hoverStyle} filter={filter} />
+            <Layer {...getHoverStyle(isTurnoutMap)} filter={filter} />
           </Source>
 
           {hoverInfo && hoverInfo.districtData && (
