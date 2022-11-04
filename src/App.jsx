@@ -2,6 +2,7 @@ import React from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Footer, Header } from "./components/HeaderFooter";
 import TurnoutMap from "./components/Map";
+import { VoterCalculatorSimple } from "./components/VoterCalculator";
 
 import "./styles/app.scss";
 
@@ -51,6 +52,17 @@ export const App = () => {
           <br />
           <div className="copy-container">
             <TurnoutMap />
+          </div>
+          <br />
+          <div className="copy-container">
+            <br />
+            <p className="copy">
+              If TKTKTK stayed home in large enough numbers — for example, if
+              TKTKTK stay home — TKTKTK would have won the election. See for
+              yourself below:
+            </p>
+            <br />
+            <VoterCalculatorSimple />
           </div>
         </div>
         <Footer />
