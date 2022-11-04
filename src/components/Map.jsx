@@ -55,7 +55,7 @@ const hoverStyle = {
 };
 
 const TurnoutMap = () => {
-  const [allData, setAllData] = React.useState(null);
+  const [mapData, setMapData] = React.useState(null);
   const [hoverInfo, setHoverInfo] = React.useState(null);
 
   React.useEffect(() => {
@@ -67,7 +67,7 @@ const TurnoutMap = () => {
     })
       .then((resp) => resp.json())
       .then((json) => {
-        setAllData(feature(json, json.objects.eds));
+        setMapData(feature(json, json.objects.eds));
         console.log("Election data loaded");
       })
       .catch((err) => console.error("Could not load data", err)); // eslint-disable-line
@@ -103,7 +103,7 @@ const TurnoutMap = () => {
       style={{ width: "100%", height: 600 }}
       mapStyle="https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json"
       onMouseMove={onHover}
-      interactiveLayerIds={allData ? ["eds"] : []}
+      interactiveLayerIds={mapData ? ["eds"] : []}
       scrollZoom={false}
       dragRotate={false}
       onMouseLeave={onMouseLeave}
@@ -112,9 +112,9 @@ const TurnoutMap = () => {
       mapboxAccessToken={MAPBOX_TOKEN}
       attributionControl={false}
     >
-      {allData && (
+      {mapData && (
         <>
-          <Source id="election-margins-data" type="geojson" data={allData}>
+          <Source id="election-margins-data" type="geojson" data={mapData}>
             <Layer {...layerStyle} />
             <Layer {...hoverStyle} filter={filter} />
           </Source>
