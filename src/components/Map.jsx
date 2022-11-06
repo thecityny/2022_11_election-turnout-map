@@ -15,7 +15,12 @@ import { MapPopup } from "./Popup";
 import "maplibre-gl/dist/maplibre-gl.css";
 import SearchBar from "./SearchBar";
 import { Legend } from "./Legend";
-import { FormControlLabel, FormGroup, Switch } from "@mui/material";
+import {
+  CircularProgress,
+  FormControlLabel,
+  FormGroup,
+  Switch,
+} from "@mui/material";
 
 /**
  * This is a public access token connected to THE CITY's MapBox account:
@@ -124,7 +129,7 @@ const TurnoutMap = () => {
 
   const onMouseLeave = React.useCallback(() => setHoverInfo(null), []);
 
-  return (
+  return !!mapData ? (
     <Map
       mapLib={maplibregl}
       initialViewState={{
@@ -137,7 +142,7 @@ const TurnoutMap = () => {
         isTurnoutMap ? "dark-matter" : "positron"
       }-nolabels-gl-style/style.json`}
       onMouseMove={onHover}
-      interactiveLayerIds={mapData ? ["eds"] : []}
+      interactiveLayerIds={["eds"]}
       scrollZoom={false}
       dragRotate={false}
       onMouseLeave={onMouseLeave}
@@ -146,17 +151,13 @@ const TurnoutMap = () => {
       mapboxAccessToken={MAPBOX_TOKEN}
       attributionControl={false}
     >
-      {mapData && (
-        <>
-          <Source id="election-margins-data" type="geojson" data={mapData}>
-            <Layer {...getLayerStyle(isTurnoutMap)} />
-            <Layer {...getHoverStyle(isTurnoutMap)} filter={filter} />
-          </Source>
+      <Source id="election-margins-data" type="geojson" data={mapData}>
+        <Layer {...getLayerStyle(isTurnoutMap)} />
+        <Layer {...getHoverStyle(isTurnoutMap)} filter={filter} />
+      </Source>
 
-          {hoverInfo && hoverInfo.districtData && (
-            <MapPopup hoverInfo={hoverInfo} isTurnoutMap={isTurnoutMap} />
-          )}
-        </>
+      {hoverInfo && hoverInfo.districtData && (
+        <MapPopup hoverInfo={hoverInfo} isTurnoutMap={isTurnoutMap} />
       )}
 
       {/* MuiFormControlLabel */}
@@ -186,6 +187,13 @@ const TurnoutMap = () => {
 
       <Legend isTurnoutMap={isTurnoutMap} />
     </Map>
+  ) : (
+    <div className="loading-screen">
+      <div>
+        <CircularProgress color="inherit" />
+        <p>Loading...</p>
+      </div>
+    </div>
   );
 };
 
