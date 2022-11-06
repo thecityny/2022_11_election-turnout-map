@@ -13,7 +13,7 @@ export const App = () => {
     <HelmetProvider>
       <article>
         <Header />
-        <div>
+        <div className="app">
           <div className="container">
             <h1 className="headline">{process.env.REACT_APP_SITE_NAME}</h1>
             <div className="attribution">
