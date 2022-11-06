@@ -40,7 +40,7 @@ const getLayerStyle = (isTurnoutMap) => {
         "#252525",
         "#0a0a0a",
       ]
-    : schemeRdBu[breaks.length];
+    : ["#d02d3c", "#e99498", "#f7f7f7", "#91a5d3", "#214da5"];
   const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
   return {
     id: "eds",
