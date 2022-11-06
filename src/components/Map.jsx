@@ -181,7 +181,7 @@ const TurnoutMap = () => {
       <SearchBar mapboxAccessToken={MAPBOX_TOKEN} position="top-left" />
       <AttributionControl compact position="bottom-left" />
 
-      <Legend />
+      <Legend isTurnoutMap={isTurnoutMap} />
     </Map>
   );
 };
