@@ -37,8 +37,20 @@
       font-weight: 200;
     }
 
+    &.margins-map-selected > span {
+      font-weight: 400;
+    }
+
+    &.turnout-map-selected .MuiTypography-root {
+      font-weight: 400;
+    }
+
     .MuiSwitch-root {
-      margin-left: 0.4rem;
+      margin-left: 0.65rem;
+    }
+
+    .MuiSwitch-thumb {
+      background-color: #bbb;
     }
   }
 

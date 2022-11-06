@@ -160,7 +160,11 @@ const TurnoutMap = () => {
       )}
 
       {/* MuiFormControlLabel */}
-      <FormGroup>
+      <FormGroup
+        className={
+          isTurnoutMap ? "turnout-map-selected" : "margins-map-selected"
+        }
+      >
         <span>Margins</span>
         <FormControlLabel
           control={
