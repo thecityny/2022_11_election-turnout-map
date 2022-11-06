@@ -9,7 +9,6 @@ import Map, {
 } from "react-map-gl";
 import maplibregl from "maplibre-gl";
 import { feature } from "topojson-client";
-import { schemeRdBu } from "d3-scale-chromatic";
 
 import { MapPopup } from "./Popup";
 
