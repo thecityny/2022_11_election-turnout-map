@@ -24,11 +24,15 @@
     display: block;
     background-color: white;
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 10px;
     border-radius: 4px;
     flex-direction: row;
     padding-left: 1rem;
+
+    @media screen and (min-width: 740px) {
+      top: 55px;
+    }
 
     span {
       margin: 0rem;
@@ -55,6 +59,9 @@
   }
 
   // MapBox Overrides:
+  .mapboxgl-ctrl-top-left {
+    max-width: 75%;
+  }
   .mapboxgl-ctrl-geocoder {
     font-family: $sans;
     font-size: 0.875rem;
