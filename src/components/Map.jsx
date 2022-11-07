@@ -1,6 +1,5 @@
 import * as React from "react";
 import Map, {
-  AttributionControl,
   FullscreenControl,
   GeolocateControl,
   Layer,
@@ -21,6 +20,7 @@ import {
   FormGroup,
   Switch,
 } from "@mui/material";
+import { Attribution } from "./Attribution";
 
 /**
  * This is a public access token connected to THE CITY's MapBox account:
@@ -183,7 +183,7 @@ const TurnoutMap = () => {
       <FullscreenControl />
       <NavigationControl showCompass={false} />
       <SearchBar mapboxAccessToken={MAPBOX_TOKEN} position="top-left" />
-      <AttributionControl compact position="bottom-left" />
+      <Attribution />
 
       <Legend isTurnoutMap={isTurnoutMap} />
     </Map>
