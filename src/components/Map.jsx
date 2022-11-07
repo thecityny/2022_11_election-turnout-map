@@ -42,7 +42,7 @@ const getLayerStyle = (isTurnoutMap) => {
         "#737373",
         "#525252",
         "#252525",
-        "#0a0a0a",
+        "#000000",
       ]
     : ["#d02d3c", "#e99498", "#f7f7f7", "#91a5d3", "#214da5"];
   const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
@@ -162,16 +162,16 @@ const TurnoutMap = () => {
           isTurnoutMap ? "turnout-map-selected" : "margins-map-selected"
         }
       >
-        <span>Who won</span>
+        <span>Turnout</span>
         <FormControlLabel
           control={
             <Switch
-              checked={isTurnoutMap}
+              checked={!isTurnoutMap}
               onChange={() => setIsTurnoutMap(!isTurnoutMap)}
               color="default"
             />
           }
-          label="Turnout"
+          label="Who won"
         />
       </FormGroup>
 

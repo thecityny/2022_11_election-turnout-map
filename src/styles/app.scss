@@ -22,7 +22,8 @@
   // MUI Switch Overrides:
   .MuiFormGroup-root {
     display: block;
-    background-color: white;
+    background-color: #fff;
+    box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
     position: absolute;
     top: 70px;
     left: 10px;
@@ -37,15 +38,15 @@
     span {
       margin: 0rem;
       font-family: $sans;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 200;
     }
 
-    &.margins-map-selected > span {
+    &.turnout-map-selected > span {
       font-weight: 400;
     }
 
-    &.turnout-map-selected .MuiTypography-root {
+    &.margins-map-selected .MuiTypography-root {
       font-weight: 400;
     }
 

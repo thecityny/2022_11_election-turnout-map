@@ -15,8 +15,8 @@ export const Legend = ({ isTurnoutMap }) => (
       <svg width="160" height="35">
         <defs>
           <linearGradient id="Gradient1">
-            <stop offset="0%" stopColor="#0a0a0a" />
-            <stop offset="90%" stopColor="#FFF" />
+            <stop offset="0%" stopColor="#fafaf8" />
+            <stop offset="90%" stopColor="#000" />
           </linearGradient>
           <linearGradient id="Gradient2">
             <stop offset="0%" stopColor="#d02d3c" />
