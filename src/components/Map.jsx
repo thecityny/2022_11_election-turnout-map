@@ -31,9 +31,28 @@ import "maplibre-gl/dist/maplibre-gl.css";
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoidGhlLWNpdHkiLCJhIjoiY2xhMWVuaDNqMDZ1ZzNxbzNkM3poMHBheSJ9.SJAnL4rHAR6jShHQniZZHg";
 
+/**
+ * This is a link to our custom MapBox Studio basemap style:
+ */
 const MAPBOX_STYLE_URL = "mapbox://styles/the-city/cla76ue2h001514o67feib2ey";
 
-const transformRequest = (url, resourceType) => {
+/**
+ * Since our custom style does not include links for map sprites, let's specify a fallback map style to load in:
+ */
+const FALLBACK_STYLE_URL_ROOT =
+  "https://tiles.basemaps.cartocdn.com/gl/positron-gl-style/sprite@2x";
+
+const transformStyleRequest = (url, resourceType) => {
+  if (resourceType === "SpriteImage") {
+    return {
+      url: `${FALLBACK_STYLE_URL_ROOT}.png`,
+    };
+  }
+  if (resourceType === "SpriteJSON") {
+    return {
+      url: `${FALLBACK_STYLE_URL_ROOT}.json`,
+    };
+  }
   if (isMapboxURL(url)) {
     return transformMapboxUrl(url, resourceType, MAPBOX_TOKEN);
   }
@@ -149,7 +168,7 @@ const TurnoutMap = () => {
       }}
       style={{ width: "100%", height: 600 }}
       mapStyle={MAPBOX_STYLE_URL}
-      transformRequest={transformRequest}
+      transformRequest={transformStyleRequest}
       onMouseMove={onHover}
       interactiveLayerIds={["eds"]}
       scrollZoom={false}

@@ -12,11 +12,11 @@ export const Attribution = () => (
       <div className="maplibregl-ctrl-attrib-inner mapboxgl-ctrl-attrib-inner">
         ©{" "}
         <a
-          href="https://carto.com/about-carto/"
+          href="https://www.mapbox.com/about/maps/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          CARTO
+          MapBox
         </a>
         , ©{" "}
         <a

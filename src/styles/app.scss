@@ -80,6 +80,9 @@ body {
       padding: 2px 8px 2px 16px;
       .maplibregl-ctrl-attrib-inner {
         margin-left: 16px;
+        a {
+          color: $city-black;
+        }
       }
     }
   }
