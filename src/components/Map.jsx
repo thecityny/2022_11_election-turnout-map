@@ -8,10 +8,7 @@ import Map, {
 } from "react-map-gl";
 import maplibregl from "maplibre-gl";
 import { feature } from "topojson-client";
-
 import { MapPopup } from "./Popup";
-
-import "maplibre-gl/dist/maplibre-gl.css";
 import SearchBar from "./SearchBar";
 import { Legend } from "./Legend";
 import {
@@ -21,12 +18,27 @@ import {
   Switch,
 } from "@mui/material";
 import { Attribution } from "./Attribution";
+import {
+  isMapboxURL,
+  transformMapboxUrl,
+} from "maplibregl-mapbox-request-transformer";
+
+import "maplibre-gl/dist/maplibre-gl.css";
 
 /**
  * This is a public access token connected to THE CITY's MapBox account:
  */
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoidGhlLWNpdHkiLCJhIjoiY2xhMWVuaDNqMDZ1ZzNxbzNkM3poMHBheSJ9.SJAnL4rHAR6jShHQniZZHg";
+
+const MAPBOX_STYLE_URL = "mapbox://styles/the-city/cla76ue2h001514o67feib2ey";
+
+const transformRequest = (url, resourceType) => {
+  if (isMapboxURL(url)) {
+    return transformMapboxUrl(url, resourceType, MAPBOX_TOKEN);
+  }
+  return { url };
+};
 
 const getLayerStyle = (isTurnoutMap) => {
   const breaks = isTurnoutMap
@@ -136,7 +148,8 @@ const TurnoutMap = () => {
         zoom: 9.3,
       }}
       style={{ width: "100%", height: 600 }}
-      mapStyle={`https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json`}
+      mapStyle={MAPBOX_STYLE_URL}
+      transformRequest={transformRequest}
       onMouseMove={onHover}
       interactiveLayerIds={["eds"]}
       scrollZoom={false}
