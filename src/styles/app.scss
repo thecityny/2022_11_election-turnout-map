@@ -18,6 +18,11 @@
 // YOUR CODE
 // Starting writing your stuff below here
 
+// Disable double-tap to zoom on touch devices
+body {
+  touch-action: manipulation;
+}
+
 .app {
   // MUI Switch Overrides:
   .MuiFormGroup-root {
