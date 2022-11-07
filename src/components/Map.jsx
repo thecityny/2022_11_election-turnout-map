@@ -172,6 +172,7 @@ const TurnoutMap = () => {
             />
           }
           label="Who won"
+          aria-label="Select map to show"
         />
       </FormGroup>
 

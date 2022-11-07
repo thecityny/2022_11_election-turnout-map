@@ -17,6 +17,7 @@ export default function SearchBar(props) {
       const ctrl = new MapboxGeocoder({
         ...props,
         marker: false,
+        placeholder: "Search address...",
         accessToken: props.mapboxAccessToken,
         bbox: [-74.2588431761, 40.4765782005, -73.7002332509, 40.9176301821],
       });
