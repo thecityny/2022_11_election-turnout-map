@@ -1,13 +1,10 @@
 export const Legend = ({ isTurnoutMap }) => (
   <div className="map-overlay mixed">
     <p className="slider-legend-title">
-      {isTurnoutMap ? "Voter Turnout: '18 vs '22'" : "Percentage Point Margin"}
+      {isTurnoutMap ? "Voter Turnout" : "Percentage Point Margin"}
     </p>
     {isTurnoutMap ? (
-      <div className="slider-legend-labels">
-        <p className="label-left">Drop</p>
-        <p className="label-right">No Drop</p>
-      </div>
+      <br />
     ) : (
       <div className="slider-legend-labels">
         <p className="label-left">Zeldin</p>
@@ -18,8 +15,8 @@ export const Legend = ({ isTurnoutMap }) => (
       <svg width="160" height="35">
         <defs>
           <linearGradient id="Gradient1">
-            <stop offset="0%" stopColor="#FFF" />
-            <stop offset="100%" stopColor="#0a0a0a" />
+            <stop offset="0%" stopColor="#fafaf8" />
+            <stop offset="90%" stopColor="#000" />
           </linearGradient>
           <linearGradient id="Gradient2">
             <stop offset="0%" stopColor="#d02d3c" />
@@ -49,7 +46,7 @@ export const Legend = ({ isTurnoutMap }) => (
           <g className="tick" opacity="1" transform="translate(15,0)">
             <line stroke="currentColor" y2="6" y1="-15"></line>
             <text fill="currentColor" y="9" dy="0.71em">
-              {isTurnoutMap ? "-30%" : "100"}
+              {isTurnoutMap ? "0%" : "100"}
             </text>
           </g>
           {!isTurnoutMap && (
@@ -63,7 +60,7 @@ export const Legend = ({ isTurnoutMap }) => (
           <g className="tick" opacity="1" transform="translate(145,0)">
             <line stroke="currentColor" y2="6" y1="-15"></line>
             <text fill="currentColor" y="9" dy="0.71em">
-              {isTurnoutMap ? "0%" : "100"}
+              {isTurnoutMap ? "60+%" : "100"}
             </text>
           </g>
         </g>

@@ -22,26 +22,31 @@
   // MUI Switch Overrides:
   .MuiFormGroup-root {
     display: block;
-    background-color: white;
+    background-color: #fff;
+    box-shadow: 0 0 10px 2px rgb(0 0 0 / 10%);
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 10px;
     border-radius: 4px;
     flex-direction: row;
     padding-left: 1rem;
 
+    @media screen and (min-width: 740px) {
+      top: 55px;
+    }
+
     span {
       margin: 0rem;
       font-family: $sans;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 200;
     }
 
-    &.margins-map-selected > span {
+    &.turnout-map-selected > span {
       font-weight: 400;
     }
 
-    &.turnout-map-selected .MuiTypography-root {
+    &.margins-map-selected .MuiTypography-root {
       font-weight: 400;
     }
 
@@ -55,10 +60,23 @@
   }
 
   // MapBox Overrides:
+  .mapboxgl-ctrl-top-left {
+    max-width: 75%;
+  }
   .mapboxgl-ctrl-geocoder {
     font-family: $sans;
     font-size: 0.875rem;
     font-weight: 200;
+  }
+
+  .maplibregl-ctrl-bottom-left {
+    pointer-events: "all";
+    details.mapboxgl-ctrl-attrib {
+      padding: 2px 8px 2px 16px;
+      .maplibregl-ctrl-attrib-inner {
+        margin-left: 16px;
+      }
+    }
   }
 
   // Loading Screen:

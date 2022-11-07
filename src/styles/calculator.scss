@@ -10,7 +10,7 @@
   }
   > .description {
     margin-top: 0rem;
-    line-height: 3rem;
+    line-height: 2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -34,7 +34,9 @@
   }
 
   .description {
-    font: 400 0.875rem $sans;
+    font-weight: 400;
+    font-size: 0.875rem;
+    font-family: $sans;
     color: #333;
   }
 
