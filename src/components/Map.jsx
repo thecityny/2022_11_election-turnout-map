@@ -29,22 +29,14 @@ const MAPBOX_TOKEN =
   "pk.eyJ1IjoidGhlLWNpdHkiLCJhIjoiY2xhMWVuaDNqMDZ1ZzNxbzNkM3poMHBheSJ9.SJAnL4rHAR6jShHQniZZHg";
 
 const getLayerStyle = (isTurnoutMap) => {
-  const breaks = isTurnoutMap
-    ? [0, 7.5, 15, 22.5, 30, 37.5, 45, 52.5, 60]
-    : [-100, -50, 0, 50, 100];
-  const mixedColorScheme = isTurnoutMap
-    ? [
-        "#0a0a0a",
-        "#252525",
-        "#525252",
-        "#737373",
-        "#969696",
-        "#bdbdbd",
-        "#d9d9d9",
-        "#f0f0f0",
-        "#ffffff",
-      ]
-    : ["#d02d3c", "#e99498", "#f7f7f7", "#91a5d3", "#214da5"];
+  const breaks = [-100, -50, 0, 50, 100];
+  const mixedColorScheme = [
+    "#d02d3c",
+    "#e99498",
+    "#f7f7f7",
+    "#91a5d3",
+    "#214da5",
+  ];
   const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
   return {
     id: "eds",
@@ -53,11 +45,16 @@ const getLayerStyle = (isTurnoutMap) => {
       "fill-color": isTurnoutMap
         ? [
             "case",
-            ["to-boolean", ["get", "t22"]],
-            ["interpolate", ["linear"], ["to-number", ["get", "t22"]]].concat(
-              ...mixedColors
-            ),
-            "#0a0a0a",
+            ["to-boolean", ["get", "margin"]],
+            [
+              "case",
+              [">", ["to-number", ["get", "margin"]], 0],
+              "#5e3c99",
+              ["<=", ["to-number", ["get", "margin"]], 0],
+              "#e66101",
+              "#ccc",
+            ],
+            "#ccc",
           ]
         : [
             "case",
@@ -69,8 +66,15 @@ const getLayerStyle = (isTurnoutMap) => {
             ].concat(...mixedColors),
             "#ccc",
           ],
-      "fill-opacity": 0.75,
-      "fill-outline-color": isTurnoutMap ? "#333" : "#eee",
+      "fill-opacity": isTurnoutMap
+        ? [
+            "case",
+            ["to-boolean", ["get", "margin"]],
+            ["/", ["to-number", ["get", "t22"]], 100],
+            0.75,
+          ]
+        : 0.75,
+      "fill-outline-color": "#bbb",
     },
   };
 };
@@ -81,7 +85,7 @@ const getHoverStyle = (isTurnoutMap) => ({
   source: "eds",
   paint: {
     "line-width": 1.5,
-    "line-color": isTurnoutMap ? "#fcc32c" : "#000",
+    "line-color": "#000",
   },
 });
 
@@ -136,9 +140,7 @@ const TurnoutMap = () => {
         zoom: 9.3,
       }}
       style={{ width: "100%", height: 600 }}
-      mapStyle={`https://basemaps.cartocdn.com/gl/${
-        isTurnoutMap ? "dark-matter" : "positron"
-      }-nolabels-gl-style/style.json`}
+      mapStyle={`https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json`}
       onMouseMove={onHover}
       interactiveLayerIds={["eds"]}
       scrollZoom={false}
