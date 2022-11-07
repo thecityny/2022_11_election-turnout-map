@@ -36,15 +36,7 @@ export const App = () => {
 
           <div className="copy-container">
             <p className="copy">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              pellentesque luctus magna sed auctor. Cras ullamcorper urna mattis
-              lectus sagittis, quis vehicula dui vestibulum.
-            </p>
-            <p className="copy">
-              Aliquam sollicitudin libero vel diam cursus, ut egestas ex
-              scelerisque. Nullam vestibulum metus interdum, dictum erat vel,
-              luctus elit. Nullam aliquam ante elit, mollis aliquet nulla
-              efficitur molestie. Praesent a tempus mi.
+            Voter turnout was a deciding factor in the 2022 New York governor’s race. Use this map to find out if your neighborhood showed up to vote. You can search for an address
             </p>
           </div>
 
