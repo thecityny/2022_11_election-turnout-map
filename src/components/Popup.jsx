@@ -9,6 +9,7 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
       latitude={latitude}
       closeButton={false}
       className="county-info"
+      closeOnClick={false}
     >
       <div className="popup-content">
         <div className="report">
