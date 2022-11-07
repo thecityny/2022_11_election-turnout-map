@@ -36,7 +36,7 @@ export default function SearchBar(props) {
               {...props.marker}
               longitude={location[0]}
               latitude={location[1]}
-              color="#111111"
+              color="#fcc32c"
             />
           );
         } else {
