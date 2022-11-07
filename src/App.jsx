@@ -37,15 +37,10 @@ export const App = () => {
 
           <div className="copy-container">
             <p className="copy">
-              TKTKTK beat TKTKTK in the Nov. 8 election — but with TKTKTK
-              enthusiasm from voters than TKTKTK in the 2018 Gubernatorial race.
-              The results showed TKTKTK garnered TK% of the vote statewide,
-              compared to TKTKTK.
-            </p>
-            <p className="copy">
-              The final results also offer a district-by-district snapshot of
-              how New Yorkers turned out to vote during this election. Despite
-              the election results, turnout has changed TKTKTK.
+              Voter turnout was a deciding factor in the 2022 New York governor’s race.
+              Use this map to find out if your neighborhood showed up to vote. You can
+              search for an address to see turnout relative to 2018 in your
+              neighborhood.
             </p>
           </div>
 
