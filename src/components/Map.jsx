@@ -30,19 +30,19 @@ const MAPBOX_TOKEN =
 
 const getLayerStyle = (isTurnoutMap) => {
   const breaks = isTurnoutMap
-    ? [-32, -28, -24, -20, -16, -12, -8, -4, 0]
+    ? [0, 7.5, 15, 22.5, 30, 37.5, 45, 52.5, 60]
     : [-100, -50, 0, 50, 100];
   const mixedColorScheme = isTurnoutMap
     ? [
-        "#ffffff",
-        "#f0f0f0",
-        "#d9d9d9",
-        "#bdbdbd",
-        "#969696",
-        "#737373",
-        "#525252",
-        "#252525",
         "#0a0a0a",
+        "#252525",
+        "#525252",
+        "#737373",
+        "#969696",
+        "#bdbdbd",
+        "#d9d9d9",
+        "#f0f0f0",
+        "#ffffff",
       ]
     : ["#d02d3c", "#e99498", "#f7f7f7", "#91a5d3", "#214da5"];
   const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
@@ -53,12 +53,10 @@ const getLayerStyle = (isTurnoutMap) => {
       "fill-color": isTurnoutMap
         ? [
             "case",
-            ["to-boolean", ["coalesce", ["get", "t22"], ["get", "t18"]]],
-            [
-              "interpolate",
-              ["linear"],
-              ["to-number", ["-", ["get", "t22"], ["get", "t18"]]],
-            ].concat(...mixedColors),
+            ["to-boolean", ["get", "t22"]],
+            ["interpolate", ["linear"], ["to-number", ["get", "t22"]]].concat(
+              ...mixedColors
+            ),
             "#0a0a0a",
           ]
         : [
