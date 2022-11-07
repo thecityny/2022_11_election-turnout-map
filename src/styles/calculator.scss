@@ -34,7 +34,9 @@
   }
 
   .description {
-    font: 400 0.875rem $sans;
+    font-weight: 400;
+    font-size: 0.875rem;
+    font-family: $sans;
     color: #333;
   }
 
