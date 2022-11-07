@@ -34,15 +34,15 @@ const getLayerStyle = (isTurnoutMap) => {
     : [-100, -50, 0, 50, 100];
   const mixedColorScheme = isTurnoutMap
     ? [
-        "#0a0a0a",
-        "#252525",
-        "#525252",
-        "#737373",
-        "#969696",
-        "#bdbdbd",
-        "#d9d9d9",
+        "#fafaf8",
         "#f0f0f0",
-        "#ffffff",
+        "#d9d9d9",
+        "#bdbdbd",
+        "#969696",
+        "#737373",
+        "#525252",
+        "#252525",
+        "#0a0a0a",
       ]
     : ["#d02d3c", "#e99498", "#f7f7f7", "#91a5d3", "#214da5"];
   const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
@@ -57,7 +57,7 @@ const getLayerStyle = (isTurnoutMap) => {
             ["interpolate", ["linear"], ["to-number", ["get", "t22"]]].concat(
               ...mixedColors
             ),
-            "#0a0a0a",
+            "#ccc",
           ]
         : [
             "case",
@@ -70,7 +70,7 @@ const getLayerStyle = (isTurnoutMap) => {
             "#ccc",
           ],
       "fill-opacity": 0.75,
-      "fill-outline-color": isTurnoutMap ? "#333" : "#eee",
+      "fill-outline-color": isTurnoutMap ? "#999" : "#eee",
     },
   };
 };
@@ -136,9 +136,7 @@ const TurnoutMap = () => {
         zoom: 9.3,
       }}
       style={{ width: "100%", height: 600 }}
-      mapStyle={`https://basemaps.cartocdn.com/gl/${
-        isTurnoutMap ? "dark-matter" : "positron"
-      }-nolabels-gl-style/style.json`}
+      mapStyle={`https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json`}
       onMouseMove={onHover}
       interactiveLayerIds={["eds"]}
       scrollZoom={false}
@@ -164,7 +162,7 @@ const TurnoutMap = () => {
           isTurnoutMap ? "turnout-map-selected" : "margins-map-selected"
         }
       >
-        <span>Margins</span>
+        <span>Who won</span>
         <FormControlLabel
           control={
             <Switch
