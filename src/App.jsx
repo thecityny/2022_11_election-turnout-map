@@ -1,5 +1,6 @@
 import React from "react";
 import { HelmetProvider } from "react-helmet-async";
+import { HistoricalTurnoutChart } from "./components/DataWrapper";
 import { Footer, Header } from "./components/HeaderFooter";
 import TurnoutMap from "./components/Map";
 import { WaffleChart } from "./components/Waffle";
@@ -58,6 +59,14 @@ export const App = () => {
             </p>
             <br />
             <WaffleChart />
+            <br />
+            <p className="copy">
+              If TKTKTK stayed home in large enough numbers — for example, if
+              TKTKTK stay home — TKTKTK would have won the election. See for
+              yourself below:
+            </p>
+            <br />
+            <HistoricalTurnoutChart />
           </div>
         </div>
         <Footer />
