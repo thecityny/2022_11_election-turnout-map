@@ -11,13 +11,13 @@ const WaffleChartData = {
   Dem2018: [
     {
       id: "nyc",
-      label: "Cuomo Votes in NYC",
+      label: "NYC",
       value: 1705310,
       color: BLUE_COLOR,
     },
     {
       id: "upstate",
-      label: "Cuomo Votes Upstate",
+      label: "Upstate",
       value: 1930030,
       color: LIGHT_BLUE_COLOR,
     },
@@ -25,13 +25,13 @@ const WaffleChartData = {
   Dem2022: [
     {
       id: "nyc",
-      label: "Hochul Votes in NYC",
+      label: "NYC",
       value: 1405310,
       color: BLUE_COLOR,
     },
     {
       id: "upstate",
-      label: "Hochul Votes Upstate",
+      label: "Upstate",
       value: 1230030,
       color: LIGHT_BLUE_COLOR,
     },
@@ -39,13 +39,13 @@ const WaffleChartData = {
   Rep2018: [
     {
       id: "nyc",
-      label: "Molinaro Votes in NYC",
+      label: "NYC",
       value: 318000,
       color: RED_COLOR,
     },
     {
       id: "upstate",
-      label: "Molinaro Votes Upstate",
+      label: "Upstate",
       value: 1889602,
       color: LIGHT_RED_COLOR,
     },
@@ -53,20 +53,20 @@ const WaffleChartData = {
   Rep2022: [
     {
       id: "nyc",
-      label: "Zeldin Votes in NYC",
+      label: "NYC",
       value: 338000,
       color: RED_COLOR,
     },
     {
       id: "upstate",
-      label: "Zeldin Votes Upstate",
+      label: "Upstate",
       value: 1989602,
       color: LIGHT_RED_COLOR,
     },
   ],
 };
 
-const WaffleColumn = ({ columnData, electionYear }) => (
+const WaffleColumn = ({ columnData, label }) => (
   <div className="waffle-chart-container">
     <ResponsiveWaffle
       data={columnData}
@@ -76,15 +76,51 @@ const WaffleColumn = ({ columnData, electionYear }) => (
       colors={[columnData[0].color, columnData[1].color]}
       emptyColor={BACKGROUND_COLOR}
     />
-    <div>{electionYear}</div>
+    {label}
   </div>
 );
 
 export const WaffleChart = () => (
   <div className="waffle-chart-section">
-    <WaffleColumn columnData={WaffleChartData.Dem2018} electionYear="2018" />
-    <WaffleColumn columnData={WaffleChartData.Dem2022} electionYear="2022" />
-    <WaffleColumn columnData={WaffleChartData.Rep2018} electionYear="2018" />
-    <WaffleColumn columnData={WaffleChartData.Rep2022} electionYear="2022" />
+    <WaffleColumn
+      columnData={WaffleChartData.Dem2018}
+      label={
+        <div className="waffle-chart-label">
+          2018
+          <br />
+          Cuomo Votes
+        </div>
+      }
+    />
+    <WaffleColumn
+      columnData={WaffleChartData.Dem2022}
+      label={
+        <div className="waffle-chart-label">
+          2022
+          <br />
+          Hochul Votes
+        </div>
+      }
+    />
+    <WaffleColumn
+      columnData={WaffleChartData.Rep2018}
+      label={
+        <div className="waffle-chart-label">
+          2018
+          <br />
+          Molinaro Votes
+        </div>
+      }
+    />
+    <WaffleColumn
+      columnData={WaffleChartData.Rep2022}
+      label={
+        <div className="waffle-chart-label">
+          2022
+          <br />
+          Zeldin Votes
+        </div>
+      }
+    />
   </div>
 );
