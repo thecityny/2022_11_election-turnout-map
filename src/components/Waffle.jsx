@@ -67,7 +67,7 @@ const WaffleChartData = {
 };
 
 const WaffleColumn = ({ columnData, label }) => (
-  <div className="waffle-chart-container">
+  <div className="waffle-chart-column">
     <ResponsiveWaffle
       data={columnData}
       total={4000000}
@@ -78,7 +78,7 @@ const WaffleColumn = ({ columnData, label }) => (
       borderWidth={1}
       borderColor={BACKGROUND_COLOR}
       tooltip={({ label, value }) => (
-        <div>
+        <div className="waffle-chart-tooltip">
           {label} <br />
           {value.toLocaleString()} votes
         </div>
@@ -89,46 +89,66 @@ const WaffleColumn = ({ columnData, label }) => (
 );
 
 export const WaffleChart = () => (
-  <div className="waffle-chart-section">
-    <WaffleColumn
-      columnData={WaffleChartData.Dem2018}
-      label={
-        <div className="waffle-chart-label">
-          2018
-          <br />
-          Cuomo
-        </div>
-      }
-    />
-    <WaffleColumn
-      columnData={WaffleChartData.Dem2022}
-      label={
-        <div className="waffle-chart-label">
-          2022
-          <br />
-          Hochul
-        </div>
-      }
-    />
-    <WaffleColumn
-      columnData={WaffleChartData.Rep2018}
-      label={
-        <div className="waffle-chart-label">
-          2018
-          <br />
-          Molinaro
-        </div>
-      }
-    />
-    <WaffleColumn
-      columnData={WaffleChartData.Rep2022}
-      label={
-        <div className="waffle-chart-label">
-          2022
-          <br />
-          Zeldin
-        </div>
-      }
-    />
+  <div className="waffle-chart-container">
+    {" "}
+    <div className="title">
+      How does voter turnout compare to the 2018 Governor's race?
+    </div>
+    <div className="description">
+      Total votes cast for Democratic and Republican candidates in 2018 and 2022
+      New York gubernatorial elections.
+    </div>
+    <div className="waffle-chart-section">
+      <WaffleColumn
+        columnData={WaffleChartData.Dem2018}
+        label={
+          <div className="waffle-chart-label">
+            2018
+            <br />
+            Cuomo
+          </div>
+        }
+      />
+      <WaffleColumn
+        columnData={WaffleChartData.Dem2022}
+        label={
+          <div className="waffle-chart-label">
+            2022
+            <br />
+            Hochul
+          </div>
+        }
+      />
+      <WaffleColumn
+        columnData={WaffleChartData.Rep2018}
+        label={
+          <div className="waffle-chart-label">
+            2018
+            <br />
+            Molinaro
+          </div>
+        }
+      />
+      <WaffleColumn
+        columnData={WaffleChartData.Rep2022}
+        label={
+          <div className="waffle-chart-label">
+            2022
+            <br />
+            Zeldin
+          </div>
+        }
+      />
+    </div>
+    <span className="byline-content">
+      Chart: Sam Rabiyah / THE CITY · Source:{" "}
+      <a
+        href="https://www.elections.ny.gov/2018ElectionResults.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        NY State Board of Elections
+      </a>
+    </span>
   </div>
 );
