@@ -2,6 +2,7 @@ import React from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Footer, Header } from "./components/HeaderFooter";
 import TurnoutMap from "./components/Map";
+import { WaffleChart } from "./components/Waffle";
 
 import "./styles/app.scss";
 
@@ -56,6 +57,7 @@ export const App = () => {
               yourself below:
             </p>
             <br />
+            <WaffleChart />
           </div>
         </div>
         <Footer />

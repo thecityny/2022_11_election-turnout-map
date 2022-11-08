@@ -99,4 +99,13 @@ body {
       text-align: center;
     }
   }
+
+  // Waffle Chart:
+  .waffle-chart-section {
+    display: flex;
+    .waffle-chart-container {
+      width: 25%;
+      height: 400px;
+    }
+  }
 }
