@@ -75,6 +75,12 @@ const WaffleColumn = ({ columnData, label }) => (
       columns={4}
       colors={[columnData[0].color, columnData[1].color]}
       emptyColor={BACKGROUND_COLOR}
+      tooltip={({ label, value }) => (
+        <div>
+          {label} <br />
+          {value.toLocaleString()} votes
+        </div>
+      )}
     />
     {label}
   </div>
@@ -88,7 +94,7 @@ export const WaffleChart = () => (
         <div className="waffle-chart-label">
           2018
           <br />
-          Cuomo Votes
+          Cuomo
         </div>
       }
     />
@@ -98,7 +104,7 @@ export const WaffleChart = () => (
         <div className="waffle-chart-label">
           2022
           <br />
-          Hochul Votes
+          Hochul
         </div>
       }
     />
@@ -108,7 +114,7 @@ export const WaffleChart = () => (
         <div className="waffle-chart-label">
           2018
           <br />
-          Molinaro Votes
+          Molinaro
         </div>
       }
     />
@@ -118,7 +124,7 @@ export const WaffleChart = () => (
         <div className="waffle-chart-label">
           2022
           <br />
-          Zeldin Votes
+          Zeldin
         </div>
       }
     />
