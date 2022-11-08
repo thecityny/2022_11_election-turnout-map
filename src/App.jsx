@@ -2,7 +2,7 @@ import React from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Footer, Header } from "./components/HeaderFooter";
 import TurnoutMap from "./components/Map";
-import { VoterCalculatorSimple } from "./components/VoterCalculator";
+import { WaffleChart } from "./components/Waffle";
 
 import "./styles/app.scss";
 
@@ -37,10 +37,10 @@ export const App = () => {
 
           <div className="copy-container">
             <p className="copy">
-              Voter turnout was a deciding factor in the 2022 New York governor’s race.
-              Use this map to find out if your neighborhood showed up to vote. You can
-              search for an address to see turnout relative to 2018 in your
-              neighborhood.
+              Voter turnout was a deciding factor in the 2022 New York
+              governor’s race. Use this map to find out if your neighborhood
+              showed up to vote. You can search for an address to see turnout
+              relative to 2018 in your neighborhood.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export const App = () => {
               yourself below:
             </p>
             <br />
-            <VoterCalculatorSimple />
+            <WaffleChart />
           </div>
         </div>
         <Footer />
