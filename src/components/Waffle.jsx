@@ -79,7 +79,7 @@ const WaffleColumn = ({ columnData, label }) => (
       borderColor={BACKGROUND_COLOR}
       tooltip={({ label, value }) => (
         <div className="waffle-chart-tooltip">
-          {label} <br />
+          <b>{label}</b> <br />
           {value.toLocaleString()} votes
         </div>
       )}
