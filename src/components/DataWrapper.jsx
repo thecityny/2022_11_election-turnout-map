@@ -11,3 +11,17 @@ export const HistoricalTurnoutChart = () => (
     data-external="1"
   ></iframe>
 );
+
+export const CountyTurnoutMap = () => (
+  <iframe
+    title="TKTK finding about 2022 statewide turnout"
+    className="datawrapper-embed"
+    aria-label="Map"
+    id="datawrapper-chart-6dDNi"
+    src="https://datawrapper.dwcdn.net/6dDNi/3/"
+    scrolling="no"
+    frameBorder="0"
+    height="750"
+    data-external="1"
+  ></iframe>
+);
