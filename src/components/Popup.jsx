@@ -15,8 +15,14 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
         <div className="report">
           {isTurnoutMap ? (
             <>
-              <h3>Precinct {districtData.ed}</h3>
-              <p>2022 Turnout: {Math.abs(Math.round(districtData.t22))}%</p>
+              <h3>Election District {districtData.ed}</h3>
+              <p>
+                2022 Turnout:{" "}
+                {districtData.t22
+                  ? Math.abs(Math.round(districtData.t22))
+                  : "0"}
+                %
+              </p>
               <h4>
                 In {districtData.nta}, <br /> turnout{" "}
                 {districtData.nta22 - districtData.nta18 > 0
