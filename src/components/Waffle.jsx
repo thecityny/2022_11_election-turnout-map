@@ -17,7 +17,7 @@ const WaffleChartData = {
     },
     {
       id: "upstate",
-      label: "Upstate",
+      label: "Outside NYC",
       value: 1930030,
       color: LIGHT_BLUE_COLOR,
     },
@@ -31,7 +31,7 @@ const WaffleChartData = {
     },
     {
       id: "upstate",
-      label: "Upstate",
+      label: "Outside NYC",
       value: 1230030,
       color: LIGHT_BLUE_COLOR,
     },
@@ -45,7 +45,7 @@ const WaffleChartData = {
     },
     {
       id: "upstate",
-      label: "Upstate",
+      label: "Outside NYC",
       value: 1889602,
       color: LIGHT_RED_COLOR,
     },
@@ -59,7 +59,7 @@ const WaffleChartData = {
     },
     {
       id: "upstate",
-      label: "Upstate",
+      label: "Outside NYC",
       value: 1989602,
       color: LIGHT_RED_COLOR,
     },
