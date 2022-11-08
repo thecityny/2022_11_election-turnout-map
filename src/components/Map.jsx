@@ -88,7 +88,17 @@ const getLayerStyle = (isTurnoutMap) => {
             ].concat(...mixedColors),
             "#ccc",
           ],
-      "fill-opacity": 0.75,
+      "fill-opacity": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        // When zoom is 10 or lower, buildings will be 90% opaque.
+        10,
+        0.9,
+        // When zoom is 16 or higher, buildings will be 20% opaque.
+        16,
+        0.2,
+      ],
       "fill-outline-color": isTurnoutMap ? "#999" : "#eee",
     },
   };
