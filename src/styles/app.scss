@@ -14,9 +14,14 @@
 @import "./defaults/dataviz";
 
 // OTHER CUSTOM STYLES
-@import "./calculator.scss";
+
 // YOUR CODE
 // Starting writing your stuff below here
+
+// Disable double-tap to zoom on touch devices
+body {
+  touch-action: manipulation;
+}
 
 .app {
   // MUI Switch Overrides:
@@ -75,6 +80,9 @@
       padding: 2px 8px 2px 16px;
       .maplibregl-ctrl-attrib-inner {
         margin-left: 16px;
+        a {
+          color: $city-black;
+        }
       }
     }
   }
@@ -90,5 +98,75 @@
     > div {
       text-align: center;
     }
+  }
+
+  // Waffle Chart:
+  .waffle-chart-container {
+    .title {
+      font: 900 1.375rem $sans;
+      color: $city-black;
+      margin-bottom: 0.25rem;
+    }
+
+    .description {
+      font-weight: 400;
+      font-size: 0.875rem;
+      font-family: $sans;
+      color: #333;
+      margin-bottom: 1rem;
+      height: fit-content;
+
+      b:first-child {
+        span:first-child {
+          color: $city-politics-red;
+        }
+        span:last-child {
+          color: $city-politics-blue;
+        }
+      }
+    }
+
+    .byline-content {
+      font-size: 10px;
+      color: #000;
+      font-weight: 300;
+      display: block;
+      margin-top: 4rem;
+      a {
+        color: #08c;
+        text-decoration: none;
+      }
+    }
+
+    .waffle-chart-headers {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .waffle-chart-section {
+      display: flex;
+      justify-content: space-between;
+
+      .waffle-chart-column {
+        width: 23%;
+        height: 400px;
+        margin-bottom: 1rem;
+        .waffle-chart-label {
+          width: 100%;
+          margin-top: 1rem;
+          text-align: center;
+        }
+        .waffle-chart-tooltip {
+          font-size: 0.75rem;
+          line-height: 1.2em;
+        }
+      }
+    }
+  }
+
+  // DataWrapper Charts
+
+  .datawrapper-embed {
+    width: 100%;
   }
 }

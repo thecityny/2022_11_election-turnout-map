@@ -7,7 +7,8 @@
     <meta charset="utf-8" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="%REACT_APP_SEO_DESCRIPTION%" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
     <link rel="canonical" href="%REACT_APP_DOMAIN%%REACT_APP_SLUG%" />
     <meta property="og:title" content="%REACT_APP_SOCIAL_HEADLINE%" />
     <meta property="og:description" content="%REACT_APP_SOCIAL_DESCRIPTION%" />
@@ -114,10 +115,29 @@
 
     gtag('config', 'G-DZWKP1Y4D9');
     dataLayer.push({
-      'Author': 'Sam Rabiyah:Suhail Bhat:Tanaz Meghjani',
-      'Primary_Group': 'Campaign 2022'
+      'Author': 'Sam Rabiyah:Suhail Bhat:Tanaz Meghjani:Scott Klein',
+      'Primary_Group': 'Campaign 2022',
+      'Type': 'Interactive'
     });
   </script>
   <script id="parsely-cfg" src="//cdn.parsely.com/keys/thecity.nyc/p.js"></script>
+  <!-- 
+    Event listener to make embedded DataWrapper charts responsive on different screen sizes:
+  -->
+  <script type="text/javascript">
+    window.addEventListener('message', function(event) {
+        if (typeof event.data['datawrapper-height'] !== 'undefined') {
+            var iframes = document.querySelectorAll('iframe');
+            for (var chartId in event.data['datawrapper-height']) {
+                for (var i = 0; i < iframes.length; i++) {
+                    if (iframes[i].contentWindow === event.source) {
+                        var iframe = iframes[i]
+                        iframe.style.height = event.data['datawrapper-height'][chartId] + 'px';
+                    }
+                }
+            }
+        }
+    });
+    </script>
   </body>
 </html>

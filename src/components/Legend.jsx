@@ -15,7 +15,7 @@ export const Legend = ({ isTurnoutMap }) => (
       <svg width="160" height="35">
         <defs>
           <linearGradient id="Gradient1">
-            <stop offset="0%" stopColor="#fafaf8" />
+            <stop offset="10%" stopColor="#fafaf8" />
             <stop offset="90%" stopColor="#000" />
           </linearGradient>
           <linearGradient id="Gradient2">
@@ -60,7 +60,7 @@ export const Legend = ({ isTurnoutMap }) => (
           <g className="tick" opacity="1" transform="translate(145,0)">
             <line stroke="currentColor" y2="6" y1="-15"></line>
             <text fill="currentColor" y="9" dy="0.71em">
-              {isTurnoutMap ? "60+%" : "100"}
+              {isTurnoutMap ? "50%+" : "100"}
             </text>
           </g>
         </g>

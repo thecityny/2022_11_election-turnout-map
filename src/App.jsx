@@ -1,8 +1,13 @@
 import React from "react";
 import { HelmetProvider } from "react-helmet-async";
+import {
+  CountyTurnoutMap,
+  HistoricalTurnoutChart,
+} from "./components/DataWrapper";
 import { Footer, Header } from "./components/HeaderFooter";
 import TurnoutMap from "./components/Map";
-import { VoterCalculatorSimple } from "./components/VoterCalculator";
+import { WaffleChart } from "./components/Waffle";
+import { Newsletter } from "./components/Newsletter";
 
 import "./styles/app.scss";
 
@@ -30,6 +35,7 @@ export const App = () => {
                   </span>
                 ))}
               </p>
+              <p class="article-date">Last updated: Nov. 8, 2022 at 4 p.m.</p>
             </div>
           </div>
 
@@ -37,10 +43,15 @@ export const App = () => {
 
           <div className="copy-container">
             <p className="copy">
-              Voter turnout was a deciding factor in the 2022 New York governor’s race.
-              Use this map to find out if your neighborhood showed up to vote. You can
-              search for an address to see turnout relative to 2018 in your
-              neighborhood.
+              In a close contest for governor, the results were shaped by voter
+              turnout — how many registered voters actually decided to show up
+              at the polls or cast an absentee ballot.
+            </p>
+            <p className="copy">
+              This map shows the percent of active registered voters in each New
+              York City election district who cast a ballot for governor,
+              including absentee ballots counted by the city Board of Elections
+              to date. <a href="tk"><b>Related Story: Lead-all Headline Goes Here</b></a>
             </p>
           </div>
 
@@ -49,15 +60,45 @@ export const App = () => {
             <TurnoutMap />
           </div>
           <br />
+
+<Newsletter />
+
           <div className="copy-container">
             <br />
             <p className="copy">
-              If TKTKTK stayed home in large enough numbers — for example, if
-              TKTKTK stay home — TKTKTK would have won the election. See for
-              yourself below:
+              Click to select “Who won” and it will show which candidates for
+              governor and lieutenant governor — Kathy Hochul/Antonio Delgado or
+              Lee Zeldin/Alison Esposito — secured the most votes in each
+              election district in New York City.
             </p>
             <br />
-            <VoterCalculatorSimple />
+            <p className="copy">
+              Voter turnout so far is [higher/lower] than in the final count for
+              the last election for governor in 2018, with New York City
+              accounting for a [smaller/larger] share of the state’s votes. Some
+              absentee ballots remain outstanding.
+            </p>
+            <br />
+            <WaffleChart />
+            <br />
+            <p className="copy">
+              TKTKTK Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <br />
+            <CountyTurnoutMap />
+            <br />
+            <br />
+            <p className="copy">
+              TKTKTK Duis aute irure dolor in reprehenderit in voluptate velit
+              esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum.
+            </p>
+            <br />
+            <HistoricalTurnoutChart />
           </div>
         </div>
         <Footer />
