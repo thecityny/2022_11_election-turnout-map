@@ -92,10 +92,10 @@ export const WaffleChart = () => (
   <div className="waffle-chart-container">
     {" "}
     <div className="title">
-      How does voter turnout compare to the 2018 Governor's race?
+      Voter turnout in 2022 compared with 2018’s final count for governor
     </div>
     <div className="description">
-      Total statewide votes cast for Democratic and Republican candidates in
+      Total votes counted statewide for Democratic and Republican candidates in
       2018 and 2022 New York gubernatorial elections.{" "}
       <b>
         <span>Darker</span> <span>colors</span>
