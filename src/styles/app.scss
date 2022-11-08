@@ -128,12 +128,13 @@ body {
 
     .byline-content {
       font-size: 10px;
-      color: #333;
+      color: #000;
       font-weight: 300;
       display: block;
       margin-top: 4rem;
       a {
-        color: inherit;
+        color: #08c;
+        text-decoration: none;
       }
     }
 
