@@ -115,6 +115,15 @@ body {
       color: #333;
       margin-bottom: 1rem;
       height: fit-content;
+
+      b:first-child {
+        span:first-child {
+          color: $city-politics-red;
+        }
+        span:last-child {
+          color: $city-politics-blue;
+        }
+      }
     }
 
     .byline-content {
@@ -126,6 +135,11 @@ body {
       a {
         color: inherit;
       }
+    }
+
+    .waffle-chart-headers {
+      display: flex;
+      justify-content: space-around;
     }
 
     .waffle-chart-section {

@@ -95,49 +95,33 @@ export const WaffleChart = () => (
       How does voter turnout compare to the 2018 Governor's race?
     </div>
     <div className="description">
-      Total votes cast for Democratic and Republican candidates in 2018 and 2022
-      New York gubernatorial elections.
+      Total statewide votes cast for Democratic and Republican candidates in
+      2018 and 2022 New York gubernatorial elections.{" "}
+      <b>
+        <span>Darker</span> <span>colors</span>
+      </b>{" "}
+      indicate votes in NYC.
+    </div>
+    <div className="waffle-chart-headers">
+      <div>2018</div>
+      <div>2022</div>
     </div>
     <div className="waffle-chart-section">
       <WaffleColumn
         columnData={WaffleChartData.Dem2018}
-        label={
-          <div className="waffle-chart-label">
-            2018
-            <br />
-            Cuomo
-          </div>
-        }
-      />
-      <WaffleColumn
-        columnData={WaffleChartData.Dem2022}
-        label={
-          <div className="waffle-chart-label">
-            2022
-            <br />
-            Hochul
-          </div>
-        }
+        label={<div className="waffle-chart-label">Cuomo</div>}
       />
       <WaffleColumn
         columnData={WaffleChartData.Rep2018}
-        label={
-          <div className="waffle-chart-label">
-            2018
-            <br />
-            Molinaro
-          </div>
-        }
+        label={<div className="waffle-chart-label">Molinaro</div>}
+      />
+      <WaffleColumn
+        columnData={WaffleChartData.Dem2022}
+        label={<div className="waffle-chart-label">Hochul</div>}
       />
       <WaffleColumn
         columnData={WaffleChartData.Rep2022}
-        label={
-          <div className="waffle-chart-label">
-            2022
-            <br />
-            Zeldin
-          </div>
-        }
+        label={<div className="waffle-chart-label">Zeldin</div>}
       />
     </div>
     <span className="byline-content">
