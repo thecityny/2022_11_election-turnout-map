@@ -75,6 +75,8 @@ const WaffleColumn = ({ columnData, label }) => (
       columns={4}
       colors={[columnData[0].color, columnData[1].color]}
       emptyColor={BACKGROUND_COLOR}
+      borderWidth={1}
+      borderColor={BACKGROUND_COLOR}
       tooltip={({ label, value }) => (
         <div>
           {label} <br />
