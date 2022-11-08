@@ -7,6 +7,7 @@ import {
 import { Footer, Header } from "./components/HeaderFooter";
 import TurnoutMap from "./components/Map";
 import { WaffleChart } from "./components/Waffle";
+import { Newsletter } from "./components/Newsletter";
 
 import "./styles/app.scss";
 
@@ -34,6 +35,9 @@ export const App = () => {
                   </span>
                 ))}
               </p>
+              <p className="article-date">
+                Last updated: Nov. 8, 2022 at 4 p.m.
+              </p>
             </div>
           </div>
 
@@ -49,7 +53,10 @@ export const App = () => {
               This map shows the percent of active registered voters in each New
               York City election district who cast a ballot for governor,
               including absentee ballots counted by the city Board of Elections
-              to date.
+              to date.{" "}
+              <a href="tk">
+                <b>Related Story: Lead-all Headline Goes Here</b>
+              </a>
             </p>
           </div>
 
@@ -58,6 +65,8 @@ export const App = () => {
             <TurnoutMap />
           </div>
           <br />
+
+          <Newsletter />
 
           <div className="copy-container">
             <br />
