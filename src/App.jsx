@@ -73,7 +73,9 @@ export const App = () => {
           </div>
 
           <div className="copy-container">
-            <TurnoutMap />
+            <div className="copy">
+              <TurnoutMap />
+            </div>
           </div>
 
           <div className="copy-container">

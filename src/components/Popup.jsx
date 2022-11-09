@@ -20,7 +20,7 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
           {isTurnoutMap ? (
             <>
               <h3>
-                Election District {formatElectionDistrict(districtData.ed)}
+                Election District: {formatElectionDistrict(districtData.ed)}
               </h3>
               <p>
                 2022 Turnout:{" "}
@@ -30,20 +30,9 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
                 %
               </p>
               <br />
-              <h4>Neighborhood</h4>
+
               <p>
-                In {formatNtaName(districtData.nta)}, turnout{" "}
-                {districtData.nta22 - districtData.nta18 > 0
-                  ? "increased"
-                  : "decreased"}{" "}
-                {districtData.nta18 && districtData.nta22
-                  ? Math.abs(
-                      Math.round(
-                        (districtData.nta22 - districtData.nta18) * 10
-                      ) / 10
-                    )
-                  : "0"}
-                %
+                <b>Neighborhood:</b> {formatNtaName(districtData.nta)}
               </p>
               <table className="results">
                 <thead>
@@ -71,13 +60,24 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
                       %
                     </td>
                   </tr>
+                  <tr>
+                    <td>Change</td>
+                    <td className="number">
+                      {districtData.nta18 && districtData.nta22
+                        ? Math.round(
+                            (districtData.nta22 - districtData.nta18) * 10
+                          ) / 10
+                        : "0"}
+                      %
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </>
           ) : (
             <>
               <h3>
-                Election District {formatElectionDistrict(districtData.ed)}
+                Election District: {formatElectionDistrict(districtData.ed)}
               </h3>
               <table className="results">
                 <thead>
