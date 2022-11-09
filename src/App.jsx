@@ -69,8 +69,11 @@ export const App = () => {
               York City election district who cast a ballot for governor,
               including absentee ballots counted by the city Board of Elections
               to date.{" "}
-              <a href="tk">
-                <b>Related Story: Lead-all Headline Goes Here</b>
+              <a href="https://www.thecity.nyc/2022/11/8/23448087/hochul-zeldin-election-results-new-york">
+                <b>
+                  Related Story: Gov. Hochul Holds on After Tough Campaign
+                  Against Right-Winger Zeldin
+                </b>
               </a>
             </p>
           </div>
