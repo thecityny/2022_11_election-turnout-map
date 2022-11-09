@@ -1,6 +1,6 @@
 export const Newsletter = () => (
   <div className="newsletter-container">
-    <div className="newsletter container">
+    <div className="newsletter copy-container">
       <div className="newsletter-text">
         <h3 className="newsletter-head">Get the Scoop</h3>
         <p className="newsletter-intro">

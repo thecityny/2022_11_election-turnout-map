@@ -24,6 +24,22 @@ body {
 }
 
 .app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .copy-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .newsletter-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   // MUI Switch Overrides:
   .MuiFormGroup-root {
     display: block;
