@@ -59,9 +59,10 @@ export const App = () => {
 
           <div className="copy-container">
             <p className="copy">
-              In a close contest for governor, the results were shaped by voter
-              turnout — how many registered voters actually decided to show up
-              at the polls or cast an absentee ballot.
+              In the contest for governor, the election results that led to
+              Kathy Hochul’s win over Lee Zeldin were shaped by voter turnout —
+              how many registered voters actually decided to show up at the
+              polls or cast an absentee ballot.
             </p>
             <p className="copy">
               This map shows the percent of active registered voters in each New
@@ -87,7 +88,6 @@ export const App = () => {
               Lee Zeldin/Alison Esposito — secured the most votes in each
               election district in New York City.
             </p>
-            <br />
             {SHOW_STATE_DATA && (
               <>
                 <p className="copy">
@@ -119,9 +119,25 @@ export const App = () => {
                 <br />
               </>
             )}
-            <div className="copy">
-              <HistoricalTurnoutChart />
-            </div>
+            <p className="copy">
+              Hochul secured the most votes in New York City, 1,178,182 to
+              513,097 as of 11:35 p.m. Tuesday, amounting to 69.5% of the
+              preliminary vote. But she won a smaller share statewide, as Zeldin
+              picked up votes in his home base of Long Island and upstate.
+            </p>
+
+            <HistoricalTurnoutChart />
+
+            <p className="copy">
+              Methodology Notes: Data is from the NYC Board of Elections.
+              Results are unofficial and were last accessed Nov. 9, 2022, 12:08
+              a.m. Neighborhood borders are from the NYC Department of City
+              Planning. To calculate turnout by Neighborhood Tabulation Area
+              (NTA), we merged election district geographies from both the 2018
+              and 2022 elections with the 2020 NTA shapefile. In cases where
+              election districts fell within more than one NTA we counted it as
+              being part of the NTA that included its largest area.
+            </p>
             <Newsletter />
           </div>
         </div>
