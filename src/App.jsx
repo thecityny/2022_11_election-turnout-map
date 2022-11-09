@@ -55,8 +55,6 @@ export const App = () => {
             </div>
           </div>
 
-          <br />
-
           <div className="copy-container">
             <p className="copy">
               In a close contest for governor, the results were shaped by voter
@@ -74,23 +72,20 @@ export const App = () => {
             </p>
           </div>
 
-          <br />
           <div className="copy-container">
             <TurnoutMap />
           </div>
-          <br />
 
           <Newsletter />
 
           <div className="copy-container">
-            <br />
             <p className="copy">
               Click to select “Who won” and it will show which candidates for
               governor and lieutenant governor — Kathy Hochul/Antonio Delgado or
               Lee Zeldin/Alison Esposito — secured the most votes in each
               election district in New York City.
             </p>
-            <br />
+
             <p className="copy">
               Voter turnout so far is [higher/lower] than in the final count for
               the last election for governor in 2018, with New York City
