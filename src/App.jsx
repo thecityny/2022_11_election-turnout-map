@@ -11,7 +11,7 @@ import { Newsletter } from "./components/Newsletter";
 
 import "./styles/app.scss";
 
-const SHOW_STATE_DATA = false;
+const SHOW_STATE_DATA = true;
 
 const byline = JSON.parse(process.env.REACT_APP_AUTHOR);
 
