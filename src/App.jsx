@@ -70,10 +70,7 @@ export const App = () => {
               including absentee ballots counted by the city Board of Elections
               to date.{" "}
               <a href="https://www.thecity.nyc/2022/11/8/23448087/hochul-zeldin-election-results-new-york">
-                <b>
-                  Related Story: Gov. Hochul Holds on After Tough Campaign
-                  Against Right-Winger Zeldin
-                </b>
+                <b>Related Story: Gov. Hochul defeats right-wing challenger</b>
               </a>
             </p>
           </div>
