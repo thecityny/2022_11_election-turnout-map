@@ -17,7 +17,20 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
     >
       <div className="popup-content">
         <div className="report">
-          {isTurnoutMap ? (
+          {totalVotes < 10 ? (
+            <>
+              <h3>
+                Election District: {formatElectionDistrict(districtData.ed)}
+              </h3>
+              <p>
+                {totalVotes === 0
+                  ? `No one voted here.`
+                  : totalVotes === 1
+                  ? `Only 1 person voted here.`
+                  : `Only ${totalVotes} people voted here.`}
+              </p>
+            </>
+          ) : isTurnoutMap ? (
             <>
               <h3>
                 Election District: {formatElectionDistrict(districtData.ed)}

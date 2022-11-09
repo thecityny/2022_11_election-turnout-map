@@ -72,21 +72,35 @@ const getLayerStyle = (isTurnoutMap) => {
       "fill-color": isTurnoutMap
         ? [
             "case",
-            ["to-boolean", ["get", "t22"]],
+            [
+              "to-boolean",
+              [
+                ">=",
+                ["+", ["+", ["get", "dem"], ["get", "rep"]], ["get", "other"]],
+                10,
+              ],
+            ],
             ["interpolate", ["linear"], ["to-number", ["get", "t22"]]].concat(
               ...mixedColors
             ),
-            "#ccc",
+            "#fafaf8",
           ]
         : [
             "case",
-            ["to-boolean", ["get", "margin"]],
+            [
+              "to-boolean",
+              [
+                ">=",
+                ["+", ["+", ["get", "dem"], ["get", "rep"]], ["get", "other"]],
+                10,
+              ],
+            ],
             [
               "interpolate",
               ["linear"],
               ["to-number", ["get", "margin"]],
             ].concat(...mixedColors),
-            "#ccc",
+            "#e1e1e1",
           ],
       "fill-opacity": [
         "interpolate",
