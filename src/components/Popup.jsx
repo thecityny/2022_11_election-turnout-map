@@ -29,7 +29,9 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
                   : "0"}
                 %
               </p>
-              <h4>
+              <br />
+              <h4>Neighborhood</h4>
+              <p>
                 In {formatNtaName(districtData.nta)}, turnout{" "}
                 {districtData.nta22 - districtData.nta18 > 0
                   ? "increased"
@@ -42,7 +44,7 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
                     )
                   : "0"}
                 %
-              </h4>
+              </p>
               <table className="results">
                 <thead>
                   <tr>
