@@ -1,6 +1,8 @@
 import { Popup } from "react-map-gl";
 
 const formatNtaName = (nta) => nta.replace("-", " / ");
+const formatElectionDistrict = (ed) =>
+  ed.toString().slice(0, 2) + "/" + ed.toString().slice(2, 5);
 
 export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
   const { latitude, longitude, districtData } = hoverInfo;
@@ -17,11 +19,13 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
         <div className="report">
           {isTurnoutMap ? (
             <>
-              <h3>Election District {districtData.ed}</h3>
+              <h3>
+                Election District {formatElectionDistrict(districtData.ed)}
+              </h3>
               <p>
                 2022 Turnout:{" "}
                 {districtData.t22
-                  ? Math.abs(Math.round(districtData.t22))
+                  ? Math.abs(Math.round(districtData.t22 * 10) / 10)
                   : "0"}
                 %
               </p>
@@ -32,7 +36,9 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
                   : "decreased"}{" "}
                 {districtData.nta18 && districtData.nta22
                   ? Math.abs(
-                      Math.round(districtData.nta22 - districtData.nta18)
+                      Math.round(
+                        (districtData.nta22 - districtData.nta18) * 10
+                      ) / 10
                     )
                   : "0"}
                 %
@@ -68,7 +74,9 @@ export const MapPopup = ({ hoverInfo, isTurnoutMap }) => {
             </>
           ) : (
             <>
-              <h3>Election District {districtData.ed}</h3>
+              <h3>
+                Election District {formatElectionDistrict(districtData.ed)}
+              </h3>
               <table className="results">
                 <thead>
                   <tr>
