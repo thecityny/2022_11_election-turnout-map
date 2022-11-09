@@ -76,8 +76,6 @@ export const App = () => {
             <TurnoutMap />
           </div>
 
-          <Newsletter />
-
           <div className="copy-container">
             <p className="copy">
               Click to select “Who won” and it will show which candidates for
@@ -113,6 +111,7 @@ export const App = () => {
             </p>
             <br />
             <HistoricalTurnoutChart />
+            <Newsletter />
           </div>
         </div>
         <Footer />
