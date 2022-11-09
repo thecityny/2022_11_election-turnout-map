@@ -13,6 +13,22 @@ import "./styles/app.scss";
 
 const byline = JSON.parse(process.env.REACT_APP_AUTHOR);
 
+const getDateUpdated = () => {
+  const date = new Date(process.env.REACT_APP_UPDATE_DATE);
+  const dateFormatted = date.toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+  const timeFormatted = date.toLocaleTimeString("en-us", {
+    hour12: true,
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
+  return dateFormatted + " at " + timeFormatted;
+};
+
 export const App = () => {
   return (
     <HelmetProvider>
@@ -35,9 +51,7 @@ export const App = () => {
                   </span>
                 ))}
               </p>
-              <p className="article-date">
-                Last updated: Nov. 8, 2022 at 4 p.m.
-              </p>
+              <p className="article-date">Last updated: {getDateUpdated()}.</p>
             </div>
           </div>
 
