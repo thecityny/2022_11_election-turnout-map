@@ -16,7 +16,7 @@ const SHOW_STATE_DATA = true;
 const byline = JSON.parse(process.env.REACT_APP_AUTHOR);
 
 const getDateUpdated = () => {
-  const date = new Date(process.env.REACT_APP_UPDATE_DATE);
+  const date = new Date(process.env.REACT_APP_UPDATE_DATE.replace(/-/g, "/"));
   const dateFormatted = date.toLocaleDateString("en-us", {
     year: "numeric",
     month: "short",
