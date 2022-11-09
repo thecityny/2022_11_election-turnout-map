@@ -99,7 +99,6 @@ const getLayerStyle = (isTurnoutMap) => {
         16,
         0.2,
       ],
-      "fill-outline-color": isTurnoutMap ? "#999" : "#eee",
     },
   };
 };
