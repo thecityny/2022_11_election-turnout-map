@@ -11,6 +11,8 @@ import { Newsletter } from "./components/Newsletter";
 
 import "./styles/app.scss";
 
+const SHOW_STATE_DATA = false;
+
 const byline = JSON.parse(process.env.REACT_APP_AUTHOR);
 
 const getDateUpdated = () => {
@@ -85,34 +87,41 @@ export const App = () => {
               Lee Zeldin/Alison Esposito — secured the most votes in each
               election district in New York City.
             </p>
-
-            <p className="copy">
-              Voter turnout so far is [higher/lower] than in the final count for
-              the last election for governor in 2018, with New York City
-              accounting for a [smaller/larger] share of the state’s votes. Some
-              absentee ballots remain outstanding.
-            </p>
             <br />
-            <WaffleChart />
-            <br />
-            <p className="copy">
-              TKTKTK Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <br />
-            <CountyTurnoutMap />
-            <br />
-            <br />
-            <p className="copy">
-              TKTKTK Duis aute irure dolor in reprehenderit in voluptate velit
-              esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.
-            </p>
-            <br />
-            <HistoricalTurnoutChart />
+            {SHOW_STATE_DATA && (
+              <>
+                <p className="copy">
+                  Voter turnout so far is [higher/lower] than in the final count
+                  for the last election for governor in 2018, with New York City
+                  accounting for a [smaller/larger] share of the state’s votes.
+                  Some absentee ballots remain outstanding.
+                </p>
+                <br />
+                <WaffleChart />
+                <br />
+                <p className="copy">
+                  TKTKTK Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat.
+                </p>
+                <br />
+                <CountyTurnoutMap />
+                <br />
+                <br />
+                <p className="copy">
+                  TKTKTK Duis aute irure dolor in reprehenderit in voluptate
+                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                  sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </p>
+                <br />
+              </>
+            )}
+            <div className="copy">
+              <HistoricalTurnoutChart />
+            </div>
             <Newsletter />
           </div>
         </div>

@@ -98,6 +98,8 @@ body {
         margin-left: 16px;
         a {
           color: $city-black;
+          text-decoration: none;
+          box-shadow: none;
         }
       }
     }
