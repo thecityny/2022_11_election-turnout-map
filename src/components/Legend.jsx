@@ -60,7 +60,7 @@ export const Legend = ({ isTurnoutMap }) => (
           <g className="tick" opacity="1" transform="translate(145,0)">
             <line stroke="currentColor" y2="6" y1="-15"></line>
             <text fill="currentColor" y="9" dy="0.71em">
-              {isTurnoutMap ? "60%+" : "100"}
+              {isTurnoutMap ? "50%+" : "100"}
             </text>
           </g>
         </g>
