@@ -15,12 +15,12 @@ export const HistoricalTurnoutChart = () => (
 
 export const CountyTurnoutMap = () => (
   <iframe
-    title="2022 statewide Hochul and Zeldin votes by county"
+    title="Hochul and Zeldin votes by county"
     className="datawrapper-embed"
     aria-label="Map"
     loading="lazy"
     id="datawrapper-chart-6dDNi"
-    src="https://datawrapper.dwcdn.net/uVZbD/1/"
+    src="https://datawrapper.dwcdn.net/6dDNi/8/"
     scrolling="no"
     frameBorder="0"
     height="750"

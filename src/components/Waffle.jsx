@@ -26,13 +26,13 @@ const WaffleChartData = {
     {
       id: "nyc",
       label: "NYC",
-      value: 1405310,
+      value: 1180993,
       color: BLUE_COLOR,
     },
     {
       id: "upstate",
       label: "Outside NYC",
-      value: 1230030,
+      value: 1763463,
       color: LIGHT_BLUE_COLOR,
     },
   ],
@@ -54,13 +54,13 @@ const WaffleChartData = {
     {
       id: "nyc",
       label: "NYC",
-      value: 338000,
+      value: 514175,
       color: RED_COLOR,
     },
     {
       id: "upstate",
       label: "Outside NYC",
-      value: 1989602,
+      value: 2144978,
       color: LIGHT_RED_COLOR,
     },
   ],
