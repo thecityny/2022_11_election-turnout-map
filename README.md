@@ -1,4 +1,4 @@
-# 2022 Governor's Race: Voter Turnout Calculator
+# 2022 Election Turnout Map for THE CITY
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
