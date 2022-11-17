@@ -62,7 +62,7 @@ const transformStyleRequest = (url, resourceType) => {
 const getLayerStyle = (isTurnoutMap) => {
   const breaks = isTurnoutMap ? [0, 30, 60] : [-100, -50, 0, 50, 100];
   const mixedColorScheme = isTurnoutMap
-    ? ["#FFF4FF", "#B28EA9", "#330F2A"]
+    ? ["#ffffff", "#858d99", "#29313d"]
     : ["#d02d3c", "#e99498", "#f7f7f7", "#91a5d3", "#214da5"];
   const mixedColors = mixedColorScheme.map((v, i, a) => [breaks[i], v]);
   return {
