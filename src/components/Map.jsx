@@ -128,10 +128,13 @@ const getHoverStyle = (isTurnoutMap) => ({
 });
 
 const TurnoutMap = () => {
+  const queryParams = new URLSearchParams(window.location.search);
+  const marginsFirst = queryParams.get("marginsFirst");
+
   /**
    * Which map type are we showing? Margins map or voter turnout map?
    */
-  const [isTurnoutMap, setIsTurnoutMap] = React.useState(true);
+  const [isTurnoutMap, setIsTurnoutMap] = React.useState(!marginsFirst);
   const [mapData, setMapData] = React.useState(null);
   const [hoverInfo, setHoverInfo] = React.useState(null);
 
